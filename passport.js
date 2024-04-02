@@ -17,7 +17,7 @@ passport.use(
     {
       clientID: process.env.ClientID,
       clientSecret: process.env.ClientSecret,
-      callbackURL: "http://localhost:3000/auth/google/callback",
+      callbackURL: process.env.REDIRECT_URL,
     },
     (accessToken, refreshToken, profile, done) => {
       console.log("Google Profile:", profile);
@@ -42,7 +42,7 @@ passport.use(
 passport.use(new OutlookStrategy({
   clientID: process.env.ClientID_Outlook,
   clientSecret: process.env.ClientSecret_Outlook,
-  callbackURL: "http://localhost:3000/auth/outlook/callback",
+  callbackURL: process.env.REDIRECT_URL,
   passReqToCallback: true
 },
 (accessToken, refreshToken, profile, done) => {
